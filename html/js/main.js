@@ -332,10 +332,10 @@ function main(){
             for(let i = 0;i<localStorage.getItem('sk');i++){
                 if(localStorage.getItem(`y${i}`).substr(0, 1)==`x`){
                     if(localStorage.getItem(`y${i}`).substr(0, 2)==`x1`){
-                        answer.innerHTML += `<footer style="color: rgb(230, 240, 240);">${`Количество транспората вида T1`+" = "+Math.round(localStorage.getItem(`a${i}${localStorage.getItem('sb')}`))}</footer>`
+                        answer.innerHTML += `<footer style="color: rgb(230, 240, 240);">${`Количество транспората вида T1`+" = "+localStorage.getItem(`a${i}${localStorage.getItem('sb')}`)}</footer>`
                     }
                     if(localStorage.getItem(`y${i}`).substr(0, 2)==`x2`){
-                        answer.innerHTML += `<footer style="color: rgb(230, 240, 240);">${`Количество транспората вида T2`+" = "+Math.round(localStorage.getItem(`a${i}${localStorage.getItem('sb')}`))}</footer>`
+                        answer.innerHTML += `<footer style="color: rgb(230, 240, 240);">${`Количество транспората вида T2`+" = "+localStorage.getItem(`a${i}${localStorage.getItem('sb')}`)}</footer>`
                     }
                 }
             }
