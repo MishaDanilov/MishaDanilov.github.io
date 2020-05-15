@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>sim_met</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <style>
+        body {
+          background: none;
+          padding-left: 15px;
+          padding-right: 15px;
+        }
+        html {
+          background: url(https://s1.1zoom.me/b5050/297/Canada_Mountains_Scenery_488936_3840x2400.jpg) no-repeat center center fixed;
+          -webkit-background-size: cover;
+          -moz-background-size: cover;
+          -o-background-size: cover;
+          background-size: cover;
+        }
+      </style>
+</head>
+<body>
+    <div class="col-md-4" style="background-color: rgba(206, 210, 223, 0.226); padding-top: 0%;" id="col1"></div>
+    <div class="col-md-4" style="padding-top: 0%;">
+        <hr>
+        <div class="alert" style="background-color:rgba(135, 207, 235, 0.9);"><label style="width:100%; text-align: center;;">Решение задачи линейного программирования симплексным методом<br><br>Разработал студент группы АСОИ-181 Данилов Михаил</label></div>
+        <hr>
+        <div class="alert" style="background-color:rgba(25, 146, 65, 0.589);">
+            <label style="font-size:12px; width:100%; text-align:left; color: rgb(230, 240, 240);">
+                Разработать приложение для решения следующего типа задачи. Из Минска в Могилёв необходимо перевезти оборудование трёх типов:
+                <br>Тип А: <input style="background-color: LightSteelBlue; color:darkcyan; width:10%; text-align: center; border-radius: 10px; border-width: 0px; height: 15px;" type="text" size="4" value="20" id="02"> ед.
+                <br>Тип Б: <input style="background-color: LightSteelBlue; color:darkcyan; width:10%; text-align: center; border-radius: 10px; border-width: 0px; height: 15px;" type="text" size="4" value="40" id="12"> ед.
+                <br>Тип В: <input style="background-color: LightSteelBlue; color:darkcyan; width:10%; text-align: center; border-radius: 10px; border-width: 0px; height: 15px;" type="text" size="4" value="968" id="22"> ед.
+                <br>Для перевозки оборудования завод может заказать два вида транспорта:
+                <br>T1 и T2
+                <br>На еденицу транспорта вида T1 оборудования типа А может быть погруженно не более <input style="background-color: LightSteelBlue; color:darkcyan; width:10%; text-align: center; border-radius: 10px; border-width: 0px; height: 15px;" type="text" size="4" value="4" id="00"> ед.,
+                <br>оборудования типа Б может быть погруженно не более <input style="background-color: LightSteelBlue; color:darkcyan; width:10%; text-align: center; border-radius: 10px; border-width: 0px; height: 15px;" type="text" size="4" value="4" id="10"> ед.,
+                <br>оборудования типа В может быть погруженно не более <input style="background-color: LightSteelBlue; color:darkcyan; width:10%; text-align: center; border-radius: 10px; border-width: 0px; height: 15px;" type="text" size="4" value="44" id="20"> ед.,
+                <br>На еденицу транспорта вида T2 оборудования типа А может быть погруженно не более <input style="background-color: LightSteelBlue; color:darkcyan; width:10%; text-align: center; border-radius: 10px; border-width: 0px; height: 15px;" type="text" size="4" value="1" id="01"> ед.,
+                <br>оборудования типа Б может быть погруженно не более <input style="background-color: LightSteelBlue; color:darkcyan; width:10%; text-align: center; border-radius: 10px; border-width: 0px; height: 15px;" type="text" size="4" value="3" id="11"> ед.,
+                <br>оборудования типа В может быть погруженно не более <input style="background-color: LightSteelBlue; color:darkcyan; width:10%; text-align: center; border-radius: 10px; border-width: 0px; height: 15px;" type="text" size="4" value="177" id="21"> ед.,
+                <br>Сменные затраты, связанные с эксплуатацией единицы транспорта вида T1, составляет <input style="background-color: LightSteelBlue; color:darkcyan; width:10%; text-align: center; border-radius: 10px; border-width: 0px; height: 15px;" type="text" size="4" value="6" id="F0"> ден. ед.
+                <br>Сменные затраты, связанные с эксплуатацией единицы транспорта вида T2, составляет <input style="background-color: LightSteelBlue; color:darkcyan; width:10%; text-align: center; border-radius: 10px; border-width: 0px; height: 15px;" type="text" size="4" value="10" id="F1"> ден. ед.
+                <b style="color:maroon;"><br>Требуется:</b>
+                <br>Составить математическую модель задачи, позволяющую установить количество транспортных единиц того и другого вида, необходимое для перевозки оборудования с минимальными затратами.
+            </label>
+            <label>Погрешность: <input style="background-color: LightSteelBlue; color:darkcyan; width:30%; text-align: center; border-radius: 10px; border-width: 0px; height: 20px;" type="text" size="4" value="0.07" id="error"></label>
+            <a class="btn btn-primary btn-md" style="position: relative; top: 16%; left: 45%; border-radius: 30px;" href="solve.html" onclick="kyrs_trans()">Далее</a>
+        </div>
+        
+
+    </div>
+    <div class="col-md-4" style="background-color: rgba(206, 210, 223, 0.226); padding-top: 0%;" id="col2"></div>
+</body>
+<script src="js/transfer.js"></script>
+<script>
+    console.log("Высота страницы: " + document.documentElement.scrollHeight)
+    document.getElementById("col1").style.paddingTop = `${document.documentElement.scrollHeight}px`
+    document.getElementById("col2").style.paddingTop = `${document.documentElement.scrollHeight}px`
+</script>
+</html>
