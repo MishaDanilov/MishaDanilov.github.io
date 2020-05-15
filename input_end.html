@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>sim_met</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <style>
+        body {
+          background: none;
+          padding-left: 15px;
+          padding-right: 15px;
+        }
+        html {
+          background: url(https://s1.1zoom.me/b5050/297/Canada_Mountains_Scenery_488936_3840x2400.jpg) no-repeat center center fixed;
+          -webkit-background-size: cover;
+          -moz-background-size: cover;
+          -o-background-size: cover;
+          background-size: cover;
+        }
+      </style>
+</head>
+<body>
+    <div class="col-md-4" style="background-color: rgba(206, 210, 223, 0.226); padding-top: 0%;" id="col1"></div>
+    <div class="col-md-4" style="padding-top: 0%;" id="col2">
+        <hr>
+        <div class="alert" style="background-color:rgba(135, 207, 235, 0.9);"><label style="width:100%; text-align: center;;">Решение задачи линейного программирования симплексным методом<br><br>Разработал студент группы АСОИ-181 Данилов Михаил</label></div>
+        <hr>
+        <table class="table table table-bordered table-center" style="background-color: rgba(27, 159, 216, 0.288); color: #000;">
+            <tbody id="tab">
+                <!-- ограничения -->
+                <label><p style="color: rgb(230, 240, 240);">Ограничения:</p></label>
+                <tr id="tr1"></tr>
+                <tr id="tr2"></tr>
+                <tr id="tr3"></tr>
+                <tr id="tr4"></tr>
+                <tr id="tr5"></tr>
+                <tr id="tr6"></tr>
+                <tr id="tr7"></tr>
+                <tr id="tr8"></tr>
+                <tr id="tr9"></tr>
+                <!-- ограничения -->
+            </tbody>
+        </table>
+        <table class="table table table-bordered table-center" style="background-color: rgba(27, 159, 216, 0.288); color: #000;">
+            <tbody>
+                <!-- основа -->
+                <label><p style="color: rgb(230, 240, 240);">Функция:</p></label>
+                <tr id="F"></tr>
+                <!-- основа -->
+            </tbody>
+        </table>
+        <div style="padding-top: 0%;">
+            <a class="btn btn-primary btn-md" href="#" onclick="history.back();return false;">Назад</a>
+            <a class="btn btn-primary btn-md" href="solve.html" onclick="resh()">Далее</a>
+        </div>
+    </div>
+    <div class="col-md-4" style="background-color: rgba(206, 210, 223, 0.226); padding-top: 0%;" id="col3"></div>
+</body>
+<script>
+    for(let i = 0;i<localStorage.getItem("sk");i++){
+        for(let j = 0;j<=localStorage.getItem("sb");j++){
+            if(i==0){
+                if(j==localStorage.getItem("sb")){tr1.innerHTML += `<td style="text-align: center;"><select style="background-color: LightSteelBlue; color: #000; text-align: center; border-radius: 7px; border-width: 1px; height: 34px;" id="select${i}">
+                    <option>≤</option>
+                    <option>≥</option>
+                    <option>=</option>
+                </select></td>`+localStorage.getItem(`${i}${j}`)}
+                else{tr1.innerHTML += localStorage.getItem(`${i}${j}`);}
+            }
+            if(i==1){
+                if(j==localStorage.getItem("sb")){tr2.innerHTML += `<td style="text-align: center;"><select style="background-color: LightSteelBlue; color: #000; text-align: center; border-radius: 7px; border-width: 1px; height: 34px;" id="select${i}">
+                    <option>≤</option>
+                    <option>≥</option>
+                    <option>=</option>
+                </select></td>`+localStorage.getItem(`${i}${j}`)}
+                else{tr2.innerHTML += localStorage.getItem(`${i}${j}`);}
+            }
+            if(i==2){
+                if(j==localStorage.getItem("sb")){tr3.innerHTML += `<td style="text-align: center;"><select style="background-color: LightSteelBlue; color: #000; text-align: center; border-radius: 7px; border-width: 1px; height: 34px;" id="select${i}">
+                    <option>≤</option>
+                    <option>≥</option>
+                    <option>=</option>
+                </select></td>`+localStorage.getItem(`${i}${j}`)}
+                else{tr3.innerHTML += localStorage.getItem(`${i}${j}`);}
+            }
+            if(i==3){
+                if(j==localStorage.getItem("sb")){tr4.innerHTML += `<td style="text-align: center;"><select style="background-color: LightSteelBlue; color: #000; text-align: center; border-radius: 7px; border-width: 1px; height: 34px;" id="select${i}">
+                    <option>≤</option>
+                    <option>≥</option>
+                    <option>=</option>
+                </select></td>`+localStorage.getItem(`${i}${j}`)}
+                else{tr4.innerHTML += localStorage.getItem(`${i}${j}`);}
+            }
+            if(i==4){
+                if(j==localStorage.getItem("sb")){tr5.innerHTML += `<td style="text-align: center;"><select style="background-color: LightSteelBlue; color: #000; text-align: center; border-radius: 7px; border-width: 1px; height: 34px;" id="select${i}">
+                    <option>≤</option>
+                    <option>≥</option>
+                    <option>=</option>
+                </select></td>`+localStorage.getItem(`${i}${j}`)}
+                else{tr5.innerHTML += localStorage.getItem(`${i}${j}`);}
+            }
+            if(i==5){
+                if(j==localStorage.getItem("sb")){tr6.innerHTML += `<td style="text-align: center;"><select style="background-color: LightSteelBlue; color: #000; text-align: center; border-radius: 7px; border-width: 1px; height: 34px;" id="select${i}">
+                    <option>≤</option>
+                    <option>≥</option>
+                    <option>=</option>
+                </select></td>`+localStorage.getItem(`${i}${j}`)}
+                else{tr6.innerHTML += localStorage.getItem(`${i}${j}`);}
+            }
+            if(i==6){
+                col1.classList.remove('col-md-4');
+                col1.classList.add('col-md-3');
+                col2.classList.remove('col-md-4');
+                col2.classList.add('col-md-6');
+                col3.classList.remove('col-md-4');
+                col3.classList.add('col-md-3');
+                if(j==localStorage.getItem("sb")){tr7.innerHTML += `<td style="text-align: center;"><select style="background-color: LightSteelBlue; color: #000; text-align: center; border-radius: 7px; border-width: 1px; height: 34px;" id="select${i}">
+                    <option>≤</option>
+                    <option>≥</option>
+                    <option>=</option>
+                </select></td>`+localStorage.getItem(`${i}${j}`)}
+                else{tr7.innerHTML += localStorage.getItem(`${i}${j}`);}
+            }
+            if(i==7){
+                col1.classList.remove('col-md-4');
+                col1.classList.add('col-md-3');
+                col2.classList.remove('col-md-4');
+                col2.classList.add('col-md-6');
+                col3.classList.remove('col-md-4');
+                col3.classList.add('col-md-3');
+                if(j==localStorage.getItem("sb")){tr8.innerHTML += `<td style="text-align: center;"><select style="background-color: LightSteelBlue; color: #000; text-align: center; border-radius: 7px; border-width: 1px; height: 34px;" id="select${i}">
+                    <option>≤</option>
+                    <option>≥</option>
+                    <option>=</option>
+                </select></td>`+localStorage.getItem(`${i}${j}`)}
+                else{tr8.innerHTML += localStorage.getItem(`${i}${j}`);}
+            }
+            if(i==8){
+                col1.classList.remove('col-md-4');
+                col1.classList.add('col-md-3');
+                col2.classList.remove('col-md-4');
+                col2.classList.add('col-md-6');
+                col3.classList.remove('col-md-4');
+                col3.classList.add('col-md-3');
+                if(j==localStorage.getItem("sb")){tr9.innerHTML += `<td style="text-align: center;"><select style="background-color: LightSteelBlue; color: #000; text-align: center; border-radius: 7px; border-width: 1px; height: 34px;" id="select${i}">
+                    <option>≤</option>
+                    <option>≥</option>
+                    <optio>=</option>
+                </select></td>`+localStorage.getItem(`${i}${j}`)}
+                else{tr9.innerHTML += localStorage.getItem(`${i}${j}`);}
+            }
+        }
+    }
+    for(let j = 0;j<=localStorage.getItem("sb");j++){
+        if(j==localStorage.getItem("sb")){F.innerHTML += localStorage.getItem(`F${j}`)+`<td style="text-align: center;"><select style="background-color: SteelBlue; color: #000; text-align: center; border-radius: 7px; border-width: 1px; height: 34px;" id="select">
+                    <option>min</option>
+                    <option>max</option>
+                </select></td>`}
+        else{F.innerHTML += localStorage.getItem(`F${j}`);}
+    }         
+</script>
+<script src="js/transfer.js"></script>
+<script>
+    console.log("Высота страницы: " + document.documentElement.scrollHeight)
+    document.getElementById("col1").style.paddingTop = `${document.documentElement.scrollHeight}px`
+    document.getElementById("col3").style.paddingTop = `${document.documentElement.scrollHeight}px`
+</script>
+</html>
